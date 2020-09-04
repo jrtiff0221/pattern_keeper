@@ -14,6 +14,7 @@ class Pattern < ApplicationRecord
      scope :intermediate, -> {where(difficulty: "Intermediate")}
      scope :advanced, -> {where(difficulty: "Advanced")}
 
+     scope :search_by_category, ->(search_by_category){where("category=?")}
      scope :ordered, -> {order('created_at ASC')}
      
 end
