@@ -1,13 +1,12 @@
 class PatternsController < ApplicationController
-    before_action :set_pattern, only [:show, :edit, :update, :destory]
+    before_action :set_pattern, only: [:show, :edit, :update, :destory]
 
   def new
     @pattern = Pattern.new
   end
 
   def create
-    @pattern = Pattern.new(pattern_params)
-    #@pattern = current_user.patterns.build(pattern_params)
+   @pattern = current_user.patterns.build(pattern_params)
     if @pattern.valid?
       @pattern.save
       
@@ -63,6 +62,6 @@ class PatternsController < ApplicationController
   end 
 
   def pattern_params 
-    params.require(:pattern).permit(:title, :author, :category, :difficulty, :description :name, :website)
+    params.require(:pattern).permit(:title, :author, :published_date, :category, :difficulty, :description, :name, :website)
   end 
 end

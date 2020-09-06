@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
-  get 'patterns/new'
-  get 'patterns/create'
-  get 'patterns/index'
-  get 'patterns/show'
-  get 'patterns/edit'
-  get 'patterns/update'
-  get 'patterns/destroy'
+  
+  root 'application#home'
+  
+  devise_for :users, :controllers => {:registrations => "registrations", omniauth_callbacks: 'callbacks'}
+  
+    devise_scope :user do 
+       get 'login', to: 'devise/sessions#new'
+    end
+
+    devise_scope :user do 
+      get 'signup', to: 'devise/sessions#new'
+   end
+
+  resources :patterns
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

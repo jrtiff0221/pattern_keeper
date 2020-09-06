@@ -1,0 +1,17 @@
+<h2>All Patterns</h2>
+<table class="table table-striped table-bordered">
+<thead class= "table-header">
+<tr>
+    <th scope="col">Title</th>
+    <th scope="col">Difficulty</th>
+</tr>
+    </thead>
+    <tbody>
+    <% @patterns.each do |f| %>
+        <tr>
+        <th scope="row"> <%=link_to p.title, pattern_path(p), class: "bnt btn-info bnt-sm"%> </th>
+        <td> <% for i in 1..p.difficulty do %><i class="fas fa-star gold-str"></i><%end%></th>
+    </tr>
+        <% end %>
+    </tbody>
+</table> 

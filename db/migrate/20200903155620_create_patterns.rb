@@ -10,7 +10,7 @@ class CreatePatterns < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :website
       t.integer :pattern_id
-      t.string :timestamps
+      t.timestamps
     end
   end
 end

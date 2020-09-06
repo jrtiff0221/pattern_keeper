@@ -1,19 +1,20 @@
 class Pattern < ApplicationRecord
-     validates :title, :author, :category, :difficulty, :description, :name, presence: true
+     validates :title, :author, :published_date, :category, :difficulty, :description, :name, presence: true
 
-     belong_to :user
+
+     belongs_to :user
      has_many :comments, dependent: :destroy
      accepts_nested_attributes_for :comments
 
      scope :crocheting, -> {where(category: "Crocheting")}
-     scope :sewing, -> {where(category: "Sewing")}
      scope :knitting, -> {where(category: "Knitting")}
      scope :macrame, -> {where(category: "Macrame")}
-     
-     scope :easy, -> {where(difficulty: "Easy")}
-     scope :intermediate, -> {where(difficulty: "Intermediate")}
-     scope :advanced, -> {where(difficulty: "Advanced")}
+     scope :sewing, -> {where(category: "Sewing")}
 
+     scope :easy, -> {where(difficulty: "1 Easy")}
+     scope :intermediate, -> {where(difficulty: "2 Intermediate")}
+     scope :advanced, -> {where(difficulty: "3 Advanced")}
+     
      scope :search_by_category, ->(search_by_category){where("category=?")}
      scope :ordered, -> {order('created_at ASC')}
      

@@ -1,1 +1,41 @@
-<%= render 'form' %>
+<h1>Create a Pattern</h1>
+<br>
+<br>
+    <% if @pattern.errors.any? %>
+    <% @pattern.errors.full_messages.each do |error_message| %>
+    <li style="color: red"> <%= error_message %></li>
+        <% end %>
+    <%end%>
+<%= form_for (@pattern) do |f| %>
+    
+    <%= f.label :Title %>
+    <%= f.text_field :title %>
+<br>
+    <%= f.label :Author %>
+    <%= f.text_field :author %>
+<br>
+    <%= f.label :Published_date %>
+    <%= f.text_field :published_date %>
+<br>
+    <%= f.label :Category %>
+    <%= f.select(:category,["Crocheting", "Knitting", "Macrame", "Sewing"]) %>
+<br>
+<br>
+    <%= f.label :Difficulty %>
+    <%= f.select(:difficulty,["1 Easy", "2 Intermediate", "3 Advanced"]) %>
+<br>
+<br>
+    <%= f.label :Description %>
+    <%= f.text_area :description %>
+<br>
+    <%= f.label :Name %>
+    <%= f.text_field :name %>
+<br>
+    <%= f.label :Website %>
+    <%= f.text_field :website %>
+<br>
+ 
+<br>
+    <%= f.submit "Submit" %>
+
+    <% end %>
