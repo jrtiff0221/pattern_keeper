@@ -1,0 +1,21 @@
+
+<table class="table table-striped table-bordered">
+  <thead class="table-header">
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Name</th>
+      <th scope="col">Message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @comments.each do |c| %>
+   
+        <td><%= comment.title %></td>
+        <td><%= comment.name %></td>
+       
+        <tr>
+            <th scope="row"><%= link_to c.title, comment_path(c), class: "btn btn-info btn-sm" %></th>
+        </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,12 @@
+
+<div><strong>Title:</strong> <%= @comment.title %></div>
+<div><strong>Name:</strong> <%= @comment.name %></div>
+<div><strong>Message:</strong> <%= @comment.message %></div>
+    
+<br>
+
+<% if current_user.id == @comment.id %>
+    <%= link_to "Edit Comment", edit_comment_path(@comment) %>
+    <br>
+    <%= link_to "Delete Comment", comment_path(@comment), method: :delete,  data: { confirm: 'Are You Sure?' }%>
+<% end %>

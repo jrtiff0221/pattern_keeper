@@ -5,3 +5,27 @@
 <div><strong>Difficulty:</strong><%= @pattern.difficulty %></div>
 <div><strong>Name:</strong><%= @pattern.name %></div>
 <div><strong>Website:</strong><%= @pattern.website %></div>
+<br>
+<br>
+<div><strong>Comments:</strong></div>
+<% @pattern.comments.each do |comment| %>
+<div class="card">
+
+  <div class="card-body">
+    <h5 class="card-title">Title: <%= comment.title %></h5>
+    <h6 class="card-subtitle mb-2 text-muted">Name:  <%= comment.name %></h6>
+    <p class="card-text"><%= comment.message %></p>
+ </div>
+</div>
+<% end %>
+
+
+<br>
+
+<%= link_to "Add Comment", new_comment_path(pattern_id: @pattern.id) %>
+<br>
+<br>
+<% if current_user.id == @pattern.user %>
+    <%= link_to "Edit Pattern", edit_pattern_path(@pattern) %>
+    <%= link_to "Delete pattern", pattern_path(@pattern), method: :delete,  data: { confirm: 'Are You Sure?' }%>
+<% end %>

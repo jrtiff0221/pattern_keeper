@@ -1,0 +1,24 @@
+
+<%= form_for (@object)  do |f| %>
+<ul>
+   <% @comment.errors.full_messages.each do |error_message|%>
+   <li><%= error_message%></li>
+   <%end%>
+   </ul>
+   
+   <%= f.label :Title%>
+   <%= f.text_field :title %>
+<br>
+   <%= f.label :Name %>
+   <%= f.text_field :name %>
+<br>
+   <%= f.label :Message%>
+   <%= f.text_field :message%>
+
+
+<%= f.hidden_field :user_id, :value => current_user.id %>
+<br><br>
+
+
+<%=  f.submit "Submit" %>
+<%end%>

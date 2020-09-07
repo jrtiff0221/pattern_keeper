@@ -64,8 +64,7 @@ class PatternsController < ApplicationController
   end 
 
   def pattern_params 
-    puts "\n\nparams"
-    puts params
+ 
     params.require(:pattern).permit(:title, :author, :published_date, :category, :difficulty, :description, :name, :website, :user_id)
   end 
 end
