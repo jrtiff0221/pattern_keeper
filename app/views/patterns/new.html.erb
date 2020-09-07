@@ -6,6 +6,7 @@
     <li style="color: red"> <%= error_message %></li>
         <% end %>
     <%end%>
+
 <%= form_for (@pattern) do |f| %>
     
     <%= f.label :Title %>
@@ -34,7 +35,7 @@
     <%= f.label :Website %>
     <%= f.text_field :website %>
 <br>
- 
+
 <br>
     <%= f.submit "Submit" %>
 

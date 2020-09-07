@@ -6,7 +6,9 @@ class PatternsController < ApplicationController
   end
 
   def create
-   @pattern = current_user.patterns.build(pattern_params)
+    
+
+    @pattern = current_user.patterns.build(pattern_params)
     if @pattern.valid?
       @pattern.save
       
@@ -62,6 +64,8 @@ class PatternsController < ApplicationController
   end 
 
   def pattern_params 
-    params.require(:pattern).permit(:title, :author, :published_date, :category, :difficulty, :description, :name, :website)
+    puts "\n\nparams"
+    puts params
+    params.require(:pattern).permit(:title, :author, :published_date, :category, :difficulty, :description, :name, :website, :user_id)
   end 
 end

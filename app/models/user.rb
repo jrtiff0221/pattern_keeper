@@ -10,5 +10,7 @@ class User < ApplicationRecord
   has_many :patterns
   has_many :comments, through: :patterns
 
+  
+
 
 end

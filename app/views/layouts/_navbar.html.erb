@@ -1,0 +1,13 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="/"></a>
+  <form class="form-inline">
+    <%= link_to 'Create a New Pattern', new_pattern_path, method: :get, class: "btn btn-outline-primary nav-btn" %>
+    <br>
+    <%= link_to 'All Patterns', patterns_path, method: :get, class: "btn btn-outline-primary nav-btn" %>
+<br>
+     
+    <div style="padding-left: 10px;">
+      <%= link_to 'Sign Out', destroy_user_session_url, method: :delete, class: "btn btn-outline-success" %>
+    </div>
+  </form>
+</nav>

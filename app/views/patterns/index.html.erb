@@ -7,11 +7,9 @@
 </tr>
     </thead>
     <tbody>
-    <% @patterns.each do |f| %>
-        <tr>
-        <th scope="row"> <%=link_to p.title, pattern_path(p), class: "bnt btn-info bnt-sm"%> </th>
-        <td> <% for i in 1..p.difficulty do %><i class="fas fa-star gold-str"></i><%end%></th>
-    </tr>
+    <% @patterns.each do |pattern| %>
+      <td><%= pattern.title %></td>
+        <td><%= pattern.difficulty %></td>
         <% end %>
     </tbody>
 </table> 

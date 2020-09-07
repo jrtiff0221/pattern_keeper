@@ -7,12 +7,16 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
   </head>
 
   <body>  
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
+    <% if current_user.present? %>
+      <%= render :partial => "layouts/navbar" %>
+    <% end %>
+    <div class='container'>
+ 
 
     <%= yield %>
   </body>
