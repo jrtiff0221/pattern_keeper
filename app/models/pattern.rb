@@ -1,5 +1,5 @@
 class Pattern < ApplicationRecord
-     validates :title, :author, :published_date, :category, :difficulty, :description, :name, presence: true
+     validates :title, :author, :published_date, :category, :difficulty, :description, :name, :user_id, presence: true
 
 
      belongs_to :user
